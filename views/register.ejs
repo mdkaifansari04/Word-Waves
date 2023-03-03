@@ -1,0 +1,65 @@
+<%- include('partials/header'); -%>
+
+    <!-- ? Alert box message -->
+    <% if(alertMessage.length> 0) { %>
+
+        <div class="alert alert-danger d-flex align-items-center" role="alert" style="
+    height: 4rem;
+    margin-bottom: 0;
+    padding: 0 6%;">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 2rem;">
+                <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <div>
+                <strong> Error, </strong>
+                <%= alertMessage %>
+            </div>
+        </div>
+
+        <% } %>
+
+            <div class="login-container py-2">
+
+                <!-- MAIN  -->
+                <div class="row align-items-center py-2">
+
+                    <!-- LOTTIE ANIMATION  -->
+                    <div class="animation-container col-md-5  col-lg-6">
+                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_kdCeeh2u4M.json"
+                            background="transparent" speed="1" style="max-width: 750px; height: 600px;" loop
+                            autoplay></lottie-player>
+                    </div>
+
+                    <!-- SIGN IN  -->
+                    <div class="col-md-4  col-lg-5 form-container">
+                        <main class="form-signin m-auto signin-form">
+                            <form action="/user/register" method="post">
+                                <h1 class="h3 mb-3 fw-normal">Enter your details</h1>
+                                <div class="form-floating">
+                                    <input type="text" name="username" class="form-control input_box" id="floatingInput"
+                                        placeholder="name@example123" required>
+                                    <label for="floatingInput">User Name</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="email" name="email" class="form-control input_box"
+                                        id="floatingPassword" placeholder="Email" required>
+                                    <label for="floatingPassword">Email</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" name="phone_no" class="form-control input_box"
+                                        id="floatingPassword" placeholder="Phone" required>
+                                    <label for="floatingPassword">Phone</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="password" name="password" class="form-control input_box"
+                                        id="floatingPassword" placeholder="Password" required>
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+                                <button class="w-100 btn btn-lg btn-primary signUp-btn " type="submit">Sign in</button>
+                            </form>
+                        </main>
+                    </div>
+
+
+
+                    <%- include('partials/footer'); -%>

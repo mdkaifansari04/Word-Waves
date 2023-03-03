@@ -1,0 +1,49 @@
+<%- include('../partials/header') -%>
+    <link rel="stylesheet" href="../css/style.css">
+    
+	<!-- ?SUCCESS ALERT BOX  -->
+	<% if( message.length > 0) { %>
+        <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert"
+        style="
+        height: 4rem;
+        margin-bottom: 0;
+        padding: 0 6%;">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"  style = "width: 2rem;"
+            >
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            <div>
+                <strong>Sucessfully, </strong> <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
+        </div> 
+        <% } %>
+        
+    <div class="main-container-post">
+        <div class="create-post">
+            <div class="create-post-title">
+                <h2 class="">Create Post</h2>
+                <hr>
+            </div>
+            <form action="/post/createpost" method="post" enctype="multipart/form-data">
+                <div class="input-container">
+                    <div class="mb-3">
+                        <input class="form-control" type="file" id="formFile" name="photo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    </div>
+                    <button class="btn btn-primary signUp-btn" type="submit"> Create Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <%- include('../partials/footer') -%>

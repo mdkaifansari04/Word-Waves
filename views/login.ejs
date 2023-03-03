@@ -1,0 +1,51 @@
+<%- include('partials/header'); -%>
+
+<!-- ? Alert box message -->
+<% if(alertMessage.length > 0) {  %>
+
+<div class="alert alert-danger d-flex align-items-center" role="alert" 
+style="
+height: 4rem;
+margin-bottom: 0;
+padding: 0 6%;">
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"  style = "width: 2rem;"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <div>
+    <strong> Error, </strong> <%= alertMessage %>
+  </div>
+</div>
+
+<% } %>
+  <div class="login-container">
+
+    <!-- MAIN  -->
+    <div class="row align-items-center py-5">
+
+      <!-- LOTTIE ANIMATION  -->
+      <div class="animation-container col-md-5  col-lg-6">
+        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_hy4txm7l.json" background="transparent"
+          speed="1" style="max-width: 500px; height: 400px; margin: auto;" loop autoplay></lottie-player>
+      </div>
+
+      <!-- SIGN IN  -->
+      <div class="col-md-4  col-lg-5 form-container">
+        <main class="form-signin m-auto signin-form">
+          <form action="/user/login" method="post">
+            <h1 class="h3 mb-3 fw-normal">Log in</h1>
+            <div class="form-floating">
+              <input type="email" name="email" class="form-control input_box" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" name="password" class="form-control input_box" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary signUp-btn " type="submit">Sign in</button>
+          </form>
+        </main>
+      </div>
+
+    </div>  <!-- </div> LOGIN CONTAINER CLOSED -->
+
+
+
+  <%- include('partials/footer'); -%>

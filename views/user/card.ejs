@@ -1,0 +1,36 @@
+<%- include('../partials/header') -%>
+
+<link rel="stylesheet" href="../css/style.css">
+
+    <div class="post-container">
+        <div class="post">
+            <div class="title">
+                <h3><%= post.title %></h3>
+                <hr>
+            </div>
+            <div class="image-container">
+                <img src="<%= post.img %>" alt="">
+            </div>
+
+            <div class="row-big-card">
+                <div class="column">
+                    <i class="fa-solid fa-calendar-days card-icon"></i><span>
+                        <%= post.createdAt.toString().slice(0,11) %>
+                    </span>
+                </div>
+                <div class="column author">
+                    <i class="fa-solid fa-user card-icon"></i><span><%= post.author %></span>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="desc">
+                    <p><%= post.desc %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <%- include('../partials/footer') -%>

@@ -1,0 +1,41 @@
+<%- include('partials/header') -%>
+
+    <div id="blogs" class="main-container">
+        <div class="post-title">
+            <h2>Posts</h2>
+            <hr>
+        </div>
+        <div class="posts my-4 row col-12">
+
+            <% posts.forEach ( post => { %>
+
+                <div class="card blog-card-style item col-lg-4 col-sm-12">
+                    <img src="<%= post.img %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= post.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= post.desc.substring(0,70) + " ..." %>
+                        </p>
+                        <a href="/post/<%= post._id %>" class="btn btn-primary btn-style">Read More</a>
+                        <hr>
+                        <div class="row-card">
+                            <div class="column">
+                                <i class="fa-solid fa-calendar-days card-icon"></i><span>
+                                    <%= post.createdAt.toString().slice(0,11) %>
+                                </span>
+                            </div>
+                            <div class="column ">
+                                <i class="fa-solid fa-user card-icon"></i><span><%= post.author %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+
+    <%- include('partials/footer') -%>

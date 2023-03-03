@@ -1,0 +1,79 @@
+<%- include('../partials/header') -%>
+    <!-- ??AlERT IF POST IS DELETED  -->
+
+    <% if( message.length> 0) { %>
+        <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:" style="width: 2rem;">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            <div>
+                <strong>Sucessfully, </strong>
+                <%= message %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        </div>
+        <% } %>
+
+            <div class="user-container">
+                <div class="user-profile">
+                    <div class="user-name">
+                        <h2>
+                            <%= userName %>
+                        </h2>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="posts my-4 row col-12">
+                    <% if(posts) { %>
+                        <% posts.forEach(post=> { %>
+                            <div class="card blog-card-style item col-lg-4 col-sm-12">
+                                <img src="<%= post.img %>" class="card-img-top profile-page-card-image" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= post.title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= post.desc.substring(0,70) + " ..." %>
+                                    </p>
+                                    <a href="/post/<%= post._id %>" class="btn btn-primary btn-style-user">Read</a>
+                                    <form action="/post/deletepost/<%=post._id %>?_method=DELETE" method="post"
+                                        class="d-inline">
+                                        <button type="submit" class="btn btn-primary btn-style-user ">Delete</button>
+                                    </form>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="column">
+                                            <i class="fa-solid fa-calendar-days card-icon"></i><span>
+                                                <%= post.createdAt.toString().slice(0,11) %>
+                                            </span>
+                                        </div>
+                                        <div class="column ">
+                                            <i class="fa-solid fa-user card-icon"></i><span><%= post.author %>
+                                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                                <% } else{ %>
+
+                                    <div class="animation-container" style="width: 100%; align-items: center;">
+                                        <lottie-player
+                                            src="https://assets10.lottiefiles.com/packages/lf20_u1xuufn3.json"
+                                            background="transparent" speed="1"
+                                            style="width: 700px; height: 500px; margin: 0 auto;" loop
+                                            autoplay></lottie-player>
+
+                                            <a class=" btn btn-primary btn-style m-auto" href="/post/createpost" style="display: flex; justify-content: center;">Create Post</a>
+                                    </div>
+                                    <% } %>
+
+                </div>
+            </div>
+
+
+
+            <%- include('../partials/footer') -%>
