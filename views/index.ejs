@@ -1,152 +1,153 @@
-<%- include('partials/header'); -%>
-	<!-- ?SUCCESS ALERT BOX  -->
-	<% if( message.length> 0) { %>
-		<div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert" style="
-    height: 4rem;
-	margin-bottom: 0;
-	padding: 0 6%;">
-			<svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:" style="width: 2rem;">
-				<use xlink:href="#check-circle-fill" />
-			</svg>
-			<div>
-				<strong>Sucessfully :</strong>
-				<%= message %>
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>
+<div class="index-main-container">
+				<%- include('partials/header'); -%>
+					<!-- ?SUCCESS ALERT BOX  -->
+					<% if( message.length> 0) { %>
+						<div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert" style="
+					height: 4rem;
+					margin-bottom: 0;
+					padding: 0 6%;">
+							<svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:" style="width: 2rem;">
+								<use xlink:href="#check-circle-fill" />
+							</svg>
+							<div>
+								<strong>Sucessfully :</strong>
+								<%= message %>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+				
+						</div>
+						<% } %>
+				<div id="carouselExampleDark" class="carousel carousel-dark slide">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+							aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+							aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+							aria-label="Slide 3"></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item  active" data-bs-interval="10000">
+							<img src="https://images.pexels.com/photos/3954635/pexels-photo-3954635.jpeg?auto=compress&cs=tinysrgb&w=1600"
+								class="d-block w-100" alt="...">
+							<div class="carousel-caption d-none d-md-block">
+								<h5><%= utilities.crouselContent1 %></h5>
+								<p>Sign Up today and start your journey.</p>
+							</div>
+						</div>
+						<div class="carousel-item" data-bs-interval="2000">
+							<img src="https://images.pexels.com/photos/6956803/pexels-photo-6956803.jpeg?auto=compress&cs=tinysrgb&w=1600"
+								class="d-block w-100" alt="...">
+							<div class="carousel-caption d-none d-md-block">
+								<h5><%= utilities.crouselContent2 %></h5>
+								<p>Creating a post is as simple as making tea</p>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img src="https://images.pexels.com/photos/5077393/pexels-photo-5077393.jpeg?auto=compress&cs=tinysrgb&w=1600"
+								class="d-block w-100" alt="...">
+							<div class="carousel-caption d-none d-md-block">
+								<h5><%= utilities.crouselContent3 %></h5>
+								<p>Create your account and start your journey.</p>
+							</div>
+						</div>
+					</div>
 
-		</div>
-		<% } %>
-
-			<div id="carouselExampleDark" class="carousel carousel-dark slide">
-				<div  class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-						aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-						aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-						aria-label="Slide 3"></button>
+					<button class="carousel-control-prev arrow-btn" type="button" data-bs-target="#carouselExampleDark"
+						data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next arrow-btn" type="button" data-bs-target="#carouselExampleDark"
+						data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
 				</div>
-				<div class="carousel-inner">
-					<div class="carousel-item active" data-bs-interval="10000">
-						<img src="https://images.pexels.com/photos/3954635/pexels-photo-3954635.jpeg?auto=compress&cs=tinysrgb&w=1600"
-							class="d-block w-100" alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Create Post</h5>
-							<p>Creating a post is as simple as making tea.</p>
-						</div>
-					</div>
-					<div class="carousel-item" data-bs-interval="2000">
-						<img src="https://images.pexels.com/photos/6956803/pexels-photo-6956803.jpeg?auto=compress&cs=tinysrgb&w=1600"
-							class="d-block w-100" alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Sign up for free</h5>
-							<p>There is no additional charge of becoming a user</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img src="https://images.pexels.com/photos/5077393/pexels-photo-5077393.jpeg?auto=compress&cs=tinysrgb&w=1600"
-							class="d-block w-100" alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Create your post</h5>
-							<p>Create your account and start your journey.</p>
-						</div>
-					</div>
-				</div>
-
-				<button class="carousel-control-prev arrow-btn" type="button" data-bs-target="#carouselExampleDark"
-					data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next arrow-btn" type="button" data-bs-target="#carouselExampleDark"
-					data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
-			</div>
 
 
 
-			<!--? POST CARD -->
+				<!--? POST CARD -->
 
-			<div id="posts" class="post-container">
-				<h2 class="post-title">Posts</h2>
-				<div class="owl-carousel owl-theme">
+				<div id="posts" class="post-container">
+					<h2 class="post-title">Posts</h2>
+					<div class="owl-carousel owl-theme">
 
-					<% posts.forEach ( post=> { %>
-						<div class="card card-style item">
-							<img src="<%= post.img %>" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">
-									<%= post.title %>
-								</h5>
-								<p class="card-text">
-									<%= post.desc.substring(0,70) + " ..." %>
-								</p>
-								<a href="/post/<%= post._id %>" class="btn btn-primary btn-style">Read More</a>
-								<hr>
+						<% posts.forEach ( post=> { %>
+							<div class="card card-style item">
+								<img src="<%= post.img %>" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">
+										<%= post.title.substring(0,20) + " ..." %>
+									</h5>
+									<p class="card-text">
+										<%= post.desc.substring(0,70) + " ..." %>
+									</p>
+									<a href="/post/<%= post._id %>" class="btn btn-primary btn-style">Read More</a>
+									<hr>
 
-								<div class="row-card">
-									<div class="column">
-										<i class="fa-solid fa-calendar-days card-icon"></i><span>
-											<%= post.createdAt.toString().slice(0,11) %>
-										</span>
-									</div>
-									<div class="column ">
-										<i class="fa-solid fa-user card-icon"></i><span>
-											<%= post.author %>
-										</span>
+									<div class="row-card">
+										<div class="column">
+											<i class="fa-solid fa-calendar-days card-icon"></i><span>
+												<%= post.createdAt.toString().slice(0,11) %>
+											</span>
+										</div>
+										<div class="column ">
+											<i class="fa-solid fa-user card-icon"></i><span>
+												<%= post.author %>
+											</span>
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
 
-						<% }); %>
+							</div>
+
+							<% }); %>
+					</div>
+				</div>
+
+				<!--? USER CARD -->
+				<div id="users" class="user-container">
+					<h2 class="post-title">Users</h2>
+					<div class="owl-carousel owl-theme">
+
+						<% users.forEach ( user=> { %>
+							<div class="card card-style-user item">
+								<div class="img-container">
+									<img src="https://api.multiavatar.com/<%= user.email.split('@')[0] %>.png"
+										class="card-img-top" alt="...">
+								</div>
+								<div class="card-body">
+									<h5 class="card-title">
+										<%= user.username %>
+									</h5>
+									<a href="#">
+										<%= user.email%>
+									</a>
+									<a href="/user/<%= user._id %>" class="btn btn-primary view-btn-style">View</a>
+								</div>
+							</div>
+
+							<% }); %>
+					</div>
+				</div>
+
+				<!--?  NEWSLETTER -->
+				<div id="newsletter" class="newsLetter-container">
+					<div class="signUp-box">
+
+						<h3 class="newsletter-title">JOIN OUR NEWSLETTER</h3>
+						<p>Get latest posts</p>
+						<form>
+							<div class="mb-3">
+								<input type="email" class="form-control" placeholder="Enter Your Email"
+									id="exampleInputEmail1" aria-describedby="emailHelp">
+							</div>
+							<button type="submit" class="btn btn-primary signUp-btn">Subscribe</button>
+						</form>
+					</div>
 				</div>
 			</div>
-
-			<!--? USER CARD -->
-			<div id="users" class="user-container">
-				<h2 class="post-title">Users</h2>
-				<div class="owl-carousel owl-theme">
-
-					<% users.forEach ( user => { %>
-						<div class="card card-style-user item">
-							<div class="img-container">
-								<img src="https://api.multiavatar.com/<%= user.email.split('@')[0] %>.png" class="card-img-top"
-									alt="...">
-							</div>
-							<div class="card-body">
-								<h5 class="card-title">
-									<%= user.username %>
-								</h5>
-								<a href="#">
-									<%= user.email%>
-								</a>
-								<a href="/user/<%= user._id %>" class="btn btn-primary view-btn-style">View</a>
-							</div>
-						</div>
-
-						<% }); %>
-				</div>
-			</div>
-
-			<!--?  NEWSLETTER -->
-			<div id="newsletter" class="newsLetter-container">
-				<div class="signUp-box">
-
-					<h3 class="newsletter-title">JOIN OUR NEWSLETTER</h3>
-					<p>Get latest posts</p>
-					<form>
-						<div class="mb-3">
-							<input type="email" class="form-control" placeholder="Enter Your Email"
-								id="exampleInputEmail1" aria-describedby="emailHelp">
-						</div>
-						<button type="submit" class="btn btn-primary signUp-btn">Subscribe</button>
-					</form>
-				</div>
-			</div>
-
 
 
 

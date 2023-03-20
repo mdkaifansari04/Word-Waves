@@ -1,0 +1,101 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    .login-conatiner {
+        padding: 2rem 5rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .h2 {
+        font-size: 3rem;
+    }
+
+    .input {
+        border-radius: 0px;
+    }
+
+    .submit-btn {
+        width: 8rem;
+        height: 3rem;
+        border-radius: 0px;
+        background-color: #7286D3;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+    }
+
+    .submit-btn:hover {
+        background-color: #7286D3;
+    }
+</style>
+
+<div class="login-conatiner">
+    <!-- ? Alert box message -->
+    <% if(alertMessage.length> 0) { %>
+
+        <div class="alert alert-danger d-flex align-items-center" role="alert" style="
+        height: 4rem;
+        margin-bottom: 0;
+        padding: 0 6%;">
+
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 2rem;">
+                <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            
+            <div>
+                <strong> Error, </strong>
+                <%= alertMessage %>
+            </div>
+        </div>
+
+        <% } %>
+            <section class="vh-100">
+                <div class="container-fluid h-custom">
+
+                    <div class="col-md-6 col-lg-6 col-sm-12 show-on-scroll show-on-scroll-ready" data-show-distance="10"
+                        data-show-duration="600"
+                        style="transform: translateY(0px); transition-duration: 600ms; opacity: 1;">
+                        <h1 class="h2 pb-4 pb-sm-0 mb-130 ContactHeading">Admin SignUp </h1>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-lg-6 col-sm-12">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                                class="img-fluid" alt="Sample image">
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <form method="post" action="/admin/signup">
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input type="email" id="form3Example3" name="email"
+                                        class="form-control form-control-lg input" placeholder="Email *" />
+                                </div>
+
+                                <!-- Phone no input -->
+                                <div class="form-outline mb-3">
+                                    <input type="number" id="form3Example4" name="phoneNo"
+                                        class="form-control form-control-lg input" placeholder="Phone Number *" />
+                                </div>
+                                <!-- Password input -->
+                                <div class="form-outline mb-3">
+                                    <input type="password" id="form3Example4" name="password"
+                                        class="form-control form-control-lg input" placeholder="Password *" />
+                                </div>
+
+                                <div class="text-center text-lg-start mt-4 pt-2">
+                                    <button type="submit" class="btn submit-btn btn-primary btn-lg"
+                                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit</button>
+                                    <p class="small fw-bold mt-2 pt-1 mb-0">Already Registered ? <a href="/admin/login"
+                                            class="link-danger">Login</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+</div>

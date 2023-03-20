@@ -1,26 +1,26 @@
 <%- include('../partials/header') -%>
     <link rel="stylesheet" href="../css/style.css">
     
-	<!-- ?SUCCESS ALERT BOX  -->
-	<% if( message.length > 0) { %>
-        <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert"
-        style="
-        height: 4rem;
-        margin-bottom: 0;
-        padding: 0 6%;">
-            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"  style = "width: 2rem;"
-            >
-                <use xlink:href="#check-circle-fill" />
-            </svg>
-            <div>
-                <strong>Sucessfully, </strong> <%= message %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            
-        </div> 
-        <% } %>
-        
+    
     <div class="main-container-post">
+        <!-- ?SUCCESS ALERT BOX  -->
+        <% if( message.length > 0) { %>
+            <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert"
+            style="
+            height: 4rem;
+            margin-bottom: 0;
+            padding: 0 6%;">
+                <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"  style = "width: 2rem;"
+                >
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                <div>
+                    <strong>Sucessfully, </strong> <%= message %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                
+            </div> 
+            <% } %>
         <div class="create-post">
             <div class="create-post-title">
                 <h2 class="">Create Post</h2>

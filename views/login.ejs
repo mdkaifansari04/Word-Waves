@@ -1,21 +1,21 @@
 <%- include('partials/header'); -%>
 
-<!-- ? Alert box message -->
-<% if(alertMessage.length > 0) {  %>
-
-<div class="alert alert-danger d-flex align-items-center" role="alert" 
-style="
-height: 4rem;
-margin-bottom: 0;
-padding: 0 6%;">
-  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"  style = "width: 2rem;"><use xlink:href="#exclamation-triangle-fill"/></svg>
-  <div>
-    <strong> Error, </strong> <%= alertMessage %>
-  </div>
-</div>
-
-<% } %>
-  <div class="login-container">
+<div class="login-container">
+    <!-- ? Alert box message -->
+    <% if(alertMessage.length > 0) {  %>
+    
+    <div class="alert alert-danger d-flex align-items-center" role="alert" 
+    style="
+    height: 4rem;
+    margin-bottom: 0;
+    padding: 0 6%;">
+      <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"  style = "width: 2rem;"><use xlink:href="#exclamation-triangle-fill"/></svg>
+      <div>
+        <strong> Error, </strong> <%= alertMessage %>
+      </div>
+    </div>
+    
+    <% } %>
 
     <!-- MAIN  -->
     <div class="row align-items-center py-5">

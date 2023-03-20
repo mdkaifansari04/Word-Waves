@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Post = require('../Models/postSchema');
 const User = require('../Models/userSchema');
+const Utils = require('../Models/utilitiesSchema')
 const bodyParser = require('body-parser');
 const sessions = require('express-session')
 const flash = require('connect-flash');
@@ -25,15 +26,17 @@ cloudinary.config({
 
 
 //?Route for rendering the Create Post page
-app.get('/createPost', (req, res) => {
+app.get('/createPost', async(req, res) => {
 
     let message = req.flash('message')
+    const utilities = await Utils.findOne({})
 
     res.render('user/createPost.ejs', {
         loginProp: 'hidden',
         profileProp: '',
         message: message,
-        userAvatar : req.session.email
+        userAvatar : req.session.email,
+        utilities : utilities,
     })
 })
 
@@ -92,6 +95,7 @@ app.delete('/deletepost/:id', async(req,res) =>{
 app.get("/:id", async(req,res) =>{
     
     try {
+        const utilities = await Utils.findOne({})
         let requestPost = await Post.findById(req.params.id)
         
         if (requestPost) {
@@ -106,6 +110,7 @@ app.get("/:id", async(req,res) =>{
                     profileProp: '',
                     userAvatar : req.session.email,
                     post : requestPost,
+                    utilities : utilities,
                 })
         
             } else {
@@ -126,8 +131,10 @@ app.get("/:id", async(req,res) =>{
     } catch (error) {
         res.send('server error' + error)
     }
-
 })
+
+
+
 
 
 module.exports = app;

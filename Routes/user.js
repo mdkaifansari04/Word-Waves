@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('../Models/userSchema');
+const Utils = require('../Models/utilitiesSchema')
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const sessions = require('express-session')
@@ -22,6 +23,8 @@ app.get('/', async (req, res) => {
     try {
 
         let foundUser = await User.findOne({ email: req.session.email })
+        const utilities = await Utils.findOne({})
+
 
         if (foundUser) {
             let message = req.flash('message')
@@ -34,7 +37,8 @@ app.get('/', async (req, res) => {
                     userAvatar : req.session.email,
                     userName: foundUser.username,
                     posts: undefined,
-                    message: message
+                    message: message,
+                    utilities : utilities,
                 })
             } else {
                 res.render('user/profile.ejs', {
@@ -43,7 +47,8 @@ app.get('/', async (req, res) => {
                     userAvatar : req.session.email,
                     userName: foundUser.username,
                     posts: foundPost,
-                    message: message
+                    message: message,
+                    utilities : utilities,
                 })
             }
 
@@ -60,9 +65,13 @@ app.get('/', async (req, res) => {
 
 //? GET USER BY ID
 app.get('/:id', async(req,res) =>{
+
+    
+
     try {
         const foundUser = await User.findById(req.params.id)
         const foundPost = await Post.find({userId : foundUser._id})
+        const utilities = await Utils.findOne({})
 
         if(req.session.email) {
             if (foundPost.length < 0) {
@@ -72,6 +81,7 @@ app.get('/:id', async(req,res) =>{
                     userAvatar : req.session.email,
                     userName : foundUser.username,
                     posts : undefined,
+                    utilities : utilities,
                     
                 })
             } else {
@@ -80,7 +90,8 @@ app.get('/:id', async(req,res) =>{
                     profileProp : '',
                     userAvatar : req.session.email,
                     userName : foundUser.username,
-                    posts : foundPost
+                    posts : foundPost,
+                    utilities : utilities,
                 })
             }
         } else{
@@ -90,7 +101,8 @@ app.get('/:id', async(req,res) =>{
                     profileProp : 'hidden',
                     userAvatar : '',
                     userName : foundUser.username,
-                    posts : undefined
+                    posts : undefined,
+                    utilities : utilities,
                 })
             } else {
                 res.render('user/userProfile', {
@@ -98,7 +110,8 @@ app.get('/:id', async(req,res) =>{
                     profileProp : 'hidden',
                     userAvatar : '',
                     userName : foundUser.username,
-                    posts : foundPost
+                    posts : foundPost,
+                    utilities : utilities,
                 })
             }
         }
@@ -175,11 +188,6 @@ app.post('/login', async (req, res) => {
         res.send("login err" + error)
     }
 })
-
-
-
-
-
 
 
 module.exports = app;

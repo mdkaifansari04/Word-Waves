@@ -1,0 +1,150 @@
+<div class="inner-container">
+    <div class="input-groups">
+        <div class="option">
+            <h5>Brand Name</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">First</span>
+                <input type="text" class="form-control" value="<%= utilities.brandFirstName %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Second</span>
+                <input type="text" class="form-control" value="<%= utilities.brandSecondName %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+
+        <div class="option mt-3">
+            <h5>Crousel</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">First Crousel</span>
+                <input type="text" class="form-control" value="<%= utilities.crouselContent1 %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Second Crousel</span>
+                <input type="text" class="form-control" value="<%= utilities.crouselContent2 %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Third Crousel</span>
+                <input type="text" class="form-control" value="<%= utilities.crouselContent3 %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title">
+            </div>
+        </div>
+
+        <div class="option mt-3">
+            <h5>Footer</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Admin Profile</span>
+                <input type="text" class="form-control" value="<%= utilities.adminProfile %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="link">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Instagram</span>
+                <input type="text" class="form-control" value="<%= utilities.instaLink %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="link">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Youtube</span>
+                <input type="text" class="form-control" value="<%= utilities.youtubeLink %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="link">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">GitHub</span>
+                <input type="text" class="form-control" value="<%= utilities.gitLink %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="link">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">LinkedIn</span>
+                <input type="text" class="form-control" value="<%= utilities.linkedInLink %>"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="link">
+            </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary bt-lg mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Edit content
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content w-100">
+                    <form action="/admin/utility/update/<%= utilities._id %>?_method=PUT" method="post">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Web Content</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="brandFirstName" value="<%= utilities.brandFirstName %>" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Brand Name First</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="brandSecondName" class="form-control"
+                                    value="<%= utilities.brandSecondName %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Brand Name Second</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="crouselContent1" class="form-control"
+                                    value="<%= utilities.crouselContent1 %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Crousel Content 1 </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="crouselContent2" class="form-control"
+                                    value="<%= utilities.crouselContent2 %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Crousel Content 2 </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="crouselContent3" class="form-control"
+                                    value="<%= utilities.crouselContent3 %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Crousel Content 3 </label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" name="adminProfile" class="form-control"
+                                    value="<%= utilities.adminProfile %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Profile Image Link</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="instaLink" class="form-control"
+                                    value="<%= utilities.instaLink %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Instagram Link</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="youtubeLink" class="form-control"
+                                    value="<%= utilities.youtubeLink %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Youtube Link</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="gitLink" class="form-control" value="<%= utilities.gitLink %>"
+                                    id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Github Link</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="linkedInLink" class="form-control"
+                                    value="<%= utilities.linkedInLink %>" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">LinkedIn Link</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

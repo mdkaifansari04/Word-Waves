@@ -13,13 +13,15 @@ const User = require('./Routes/user')
 const Post = require('./Routes/post')
 const PostData = require('./Models/postSchema')
 const UserData = require('./Models/userSchema')
+const Utils = require('./Models/utilitiesSchema')
 const userSession = require('./Middlewares/userSession-middleware') // !user session middleware route
+const Admin = require('./Routes/admin')
 const PORT = 3000
 const app = express();
 
 
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, '/public')))
+app.use('/static', express.static(path.join(__dirname, '/Public')))
 app.use(flash())
 app.use(methodOverride('_method'))
 
@@ -44,6 +46,7 @@ mongoose.set("strictQuery", false)
 mongoose.connect('mongodb+srv://admin-kaif:Kaifkaif1234@cluster0.k8uohd0.mongodb.net/blogDB', {
     useNewUrlParser: true,
 })
+
     .then(() => {
         console.log('Connected to blogDB');
     })
@@ -52,21 +55,23 @@ mongoose.connect('mongodb+srv://admin-kaif:Kaifkaif1234@cluster0.k8uohd0.mongodb
     })
 
 
-let uSession;
-//? Will store the session here
-
-
 //* USER API ROUTES
 app.use('/user', User)
+
 //* POST API ROUTES
 app.use('/post', Post)
+
+//* ADMIN API ROUTES
+app.use('/admin', Admin)
+
+
 
 //? ROUTES OF LANDING PAGE
 app.get('/', async(req, res) => {
 
     const foundPost = await PostData.find({})
     const foundUser = await UserData.find({})
-
+    const utilities = await Utils.findOne({})
 
     if (req.session.email) {
 
@@ -79,7 +84,8 @@ app.get('/', async(req, res) => {
             message: message,
             posts : foundPost,
             users : foundUser,
-            userAvatar : req.session.email
+            userAvatar : req.session.email,
+            utilities : utilities,
         })
 
     } else {
@@ -92,20 +98,24 @@ app.get('/', async(req, res) => {
             message: '',
             posts : foundPost,
             users : foundUser,
-            userAvatar : ''
+            userAvatar : '',
+            utilities : utilities,
         })
     }
-
 })
 
-app.get('/login', (req, res) => {
+app.get('/login', async (req, res) => {
+
+    const utilities = await Utils.findOne({})
+
     if (req.session.email) {
         const loginProp = 'hidden';
         res.render('login', {
             loginProp: loginProp,
             profileProp: '',
             alertMessage: '',
-            userAvatar : req.session.email
+            userAvatar : req.session.email,
+            utilities : utilities,
         })
     } else {
         let message = req.flash('alertMessage');
@@ -114,18 +124,23 @@ app.get('/login', (req, res) => {
             loginProp: '',
             profileProp: profileProp,
             alertMessage: message,
-            userAvatar : ''
+            userAvatar : '',
+            utilities : utilities,
         })
     }
 })
 
-app.get('/signup', (req, res) => {
+app.get('/signup', async(req, res) => {
+
+    const utilities = await Utils.findOne({})
+
     if (req.session.email) {
         const loginProp = 'hidden';
         res.render('register', {
             loginProp: loginProp,
             profileProp: '',
-            userAvatar : req.session.email
+            userAvatar : req.session.email,
+            utilities : utilities,
         })
     } else {
         let message = req.flash('alertMessage');
@@ -135,7 +150,8 @@ app.get('/signup', (req, res) => {
             loginProp: '',
             profileProp: profileProp,
             alertMessage: message,
-            userAvatar : ''
+            userAvatar : '',
+            utilities : utilities,
         })
     }
 })
@@ -143,6 +159,7 @@ app.get('/signup', (req, res) => {
 app.get('/blogs', async(req, res) => {
 
     const allPosts = await PostData.find({})
+    const utilities = await Utils.findOne({})
 
     if (req.session.email) {
         const loginProp = 'hidden';
@@ -150,9 +167,9 @@ app.get('/blogs', async(req, res) => {
             loginProp: loginProp,
             profileProp: '',
             posts : allPosts,
-            userAvatar : req.session.email
+            userAvatar : req.session.email,
+            utilities : utilities,
         })
-
     } else {
         let message = req.flash('alertMessage');
 
@@ -162,21 +179,42 @@ app.get('/blogs', async(req, res) => {
             profileProp: profileProp,
             alertMessage: message,
             posts : allPosts,
-            userAvatar : req.session.email
+            userAvatar : req.session.email,
+            utilities : utilities,
         })
     }
 })
 
+
+app.get("/contact", async(req,res) =>{
+
+    const utilities = await Utils.findOne({})
+
+    if (req.session.email) {
+        const loginProp = 'hidden';
+        res.render('contact', {
+            loginProp: loginProp,
+            profileProp: '',
+            userAvatar : req.session.email,
+            utilities : utilities,
+        })
+    } else {
+        let message = req.flash('alertMessage');
+        const profileProp = 'hidden'
+        res.render('contact', {
+            loginProp: '',
+            profileProp: profileProp,
+            userAvatar : req.session.email,
+            utilities : utilities,
+        })
+    }
+})
 
 
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/')
 })
-
-
-
-
 
 
 app.listen('3000', () => {

@@ -1,0 +1,55 @@
+<div class="inner-container">
+    <div class="row d-flex" style="justify-content: center !important;">
+        <% posts.forEach( post=> {%>
+            <div class="card" style="width: 18rem; margin: 0.5rem;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= post.title %>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <%= post.author %>
+                    </h6>
+                    <p class="card-text">
+                        <%= post.desc.substring(0,30) + " ..." %>
+                    </p>
+
+                    <div class="btn-container">
+                        <a class="btn" href="/post/<%= post._id%>" class="card-link">View</a>
+                        <!-- <button class="btn" type="submit" class="card-link" type="btn" data-bs-toggle="modal"
+                            data-bs-target="#PostEditModal">Edit</button> -->
+                        <form action="/admin/post/deletepost/<%= post._id%>?_method=DELETE" method="post">
+                            <button class="btn" type="submit" class="card-link">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="PostEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea rows="20" type="text" class="form-control" id="floatingInput"
+                            placeholder="name@example.com"></textarea>
+                        <label for="floatingInput">Description</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

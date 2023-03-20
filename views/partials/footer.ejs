@@ -8,12 +8,10 @@
     <footer class="row">
         <div class="col-sm-12 col-md-4">
             <div class="profile ">
-                <img class = "admin-profile" src="assets/images/Kaif.jpg" alt="admin">
+                <img class="admin-profile" src="<%= utilities.adminProfile %>" alt="admin">
                 <h2>Md Kaif Ansari</h2>
                 <span>amdkaif843@gmail.com</span>
             </div>
-
-            
         </div>
 
         <div class="col-sm-12 col-md-4">
@@ -29,10 +27,14 @@
         <div class="col-sm-12  col-md-4">
             <h4>Socials</h4>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="https://www.instagram.com/thekaifansari/" class="nav-link  p-0 "><i class="fa-brands fa-instagram"></i></a></li>
-                <li class="nav-item mb-2"><a href="https://www.youtube.com/@codeway8693" class="nav-link  p-0 "><i class="fa-brands fa-youtube "></i></a></li>
-                <li class="nav-item mb-2"><a href="https://github.com/Mdkaif-123" class="nav-link  p-0 "><i class="fa-brands fa-github"></i></i></a></li>
-                <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/md-kaif-ansari-b74543243/" class="nav-link  p-0 "><i class="fa-brands fa-linkedin "></i></a></li>
+                <li class="nav-item mb-2"><a href="<%= utilities.instaLink %>" class="nav-link  p-0 "><i
+                            class="fa-brands fa-instagram"></i></a></li>
+                <li class="nav-item mb-2"><a href="<%= utilities.youtubeLink %>" class="nav-link  p-0 "><i
+                            class="fa-brands fa-youtube "></i></a></li>
+                <li class="nav-item mb-2"><a href="<%= utilities.gitLink %>" class="nav-link  p-0 "><i
+                            class="fa-brands fa-github"></i></i></a></li>
+                <li class="nav-item mb-2"><a href="<%= utilities.linkedInLink %>"
+                        class="nav-link  p-0 "><i class="fa-brands fa-linkedin "></i></a></li>
             </ul>
         </div>
     </footer>
@@ -41,15 +43,7 @@
     </div>
 </div>
 
-<!-- BOOTSTRAP JS CDN  -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"></script>
-
-<!-- OWL CROUSEL JS CDN  -->
+<!--? OWL CROUSEL JS CDN  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -57,30 +51,8 @@
     integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- LOCAL JS FILE   -->
-<script src="js/frontend lib/crousel.js"></script>
-<script src="js/script.js"></script>
-
-</html>
-
-<!-- BOOTSTRAP JS CDN  -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"></script>
-
-<!-- OWL CROUSEL JS CDN  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"
-    integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- LOCAL JS FILE   -->
-<script src="js/frontend lib/crousel.js"></script>
-<script src="js/script.js"></script>
+<!--? LOCAL JS FILE   -->
+<script src="/static/js/frontend lib/crousel.js"></script>
+<script src="/static/js/script.js"></script>
 
 </html>

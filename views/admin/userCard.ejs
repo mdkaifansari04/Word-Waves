@@ -1,0 +1,17 @@
+<div class="inner-container">
+    <div class="row d-flex" style="justify-content: center !important;">
+    <% users.forEach( user => {%>
+        <div class="card" style="width: 18rem; margin: 0.5rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= user.username %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= user.email %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= user.phone_no %></h6>
+                <form action="/admin/user/deleteuser/<%= user._id %>?_method=DELETE" method="post" >
+                <a class="btn" href="/user/<%= user._id %>" class="card-link">View</a>
+                <button class="btn" type="submit" class="card-link">Delete</button>
+            </form>
+            </div>
+        </div>
+    <% }); %>
+    </div>
+</div>

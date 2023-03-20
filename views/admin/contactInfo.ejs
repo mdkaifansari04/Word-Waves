@@ -1,0 +1,27 @@
+<div class="inner-container">
+    <div class="row d-flex style="
+    justify-content: center; !important">
+    <% if(contact.length > 0){ %>
+    <% contact.forEach( info => {%>
+        <div class="card" style="width: 95%; margin: 0.5rem;">
+            <div class="card-body">
+
+                <h5 class="card-title"><%= info.name %></h5>
+                <h3 class="card-title"><%= info.email %></h3>
+                <h6 class="card-subtitle mb-2 text-muted"><%= info.title %></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= info.message %></h6>
+                <a class="btn" href="#" class="card-link">Reply</a>
+                <a class="btn" href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+        <% }) %>
+        <% } else { %>
+
+            <div class="animation">
+                <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_e6hxa7xiMS.json"  background="transparent"  speed="1"  style="max-width: 600px; height: 400px;"  loop autoplay></lottie-player>
+            </div>
+
+
+            <% } %>
+    </div>
+</div>
