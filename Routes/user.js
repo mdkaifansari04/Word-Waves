@@ -9,6 +9,7 @@ const userSession = require('../Middlewares/userSession-middleware')
 const flash = require('connect-flash');
 const ejs = require('ejs');
 const Post = require('../Models/postSchema');
+const Contact = require('../Models/contactSchema')
 const threeMonths = 1000 * 60 * 60 * 24 * 3;
 const app = express();
 
@@ -55,8 +56,6 @@ app.get('/', async (req, res) => {
         } else {
             res.send("Error : Please login")
         }
-
-
 
     } catch (error) {
         res.send('server error:' + error)
@@ -189,6 +188,29 @@ app.post('/login', async (req, res) => {
     }
 })
 
+
+app.post('/contact', async(req,res) =>{
+
+        let newContact = new Contact({
+            name : req.body.name,
+            email : req.body.email,
+            title : req.body.subject,
+            message : req.body.message
+        })
+
+        await newContact.save()
+
+        .then(() =>{
+            req.flash("message", "Mail Send")
+            res.redirect('/contact')
+        })
+
+        .catch((err) =>{
+            req.flash("alertMessage", "Mail not send")
+            res.redirect("/contact")
+            console.log(err)
+        })
+})
 
 module.exports = app;
 

@@ -207,6 +207,22 @@ router.post('/login', async (req, res) => {
 })
 
 
+router.delete("/contact/delete/:id", async(req,res) =>{
+
+    await Contact.findByIdAndDelete({_id : req.params.id})
+
+    .then(() =>{
+        req.flash("message", "Message deleted")
+        res.redirect('/admin/dashboard')
+    })
+
+    .catch(err => {
+        req.flash("alert", "Message not deleted")
+        res.redirect('/admin/dashboard')
+    })
+
+})
+
 // ?LOGOUT REQUEST 
 
 router.get('/logout', (req,res) =>{

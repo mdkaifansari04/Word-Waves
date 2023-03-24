@@ -17,12 +17,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs')
+
 cloudinary.config({
     cloud_name: 'dngfmzv2g',
     api_key: '856543985699471',
     api_secret: 'SkYkiTXYOLxptbXJxpYwC8Ss4cE',
     secure: true
-});
+})
 
 
 //?Route for rendering the Create Post page
