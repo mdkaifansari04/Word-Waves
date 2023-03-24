@@ -43,12 +43,12 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 mongoose.set("strictQuery", false)
-// mongoose.connect('mongodb+srv://admin-kaif:Kaifkaif1234@cluster0.k8uohd0.mongodb.net/blogDB', {
-//     useNewUrlParser: true,
-// })
-mongoose.connect('mongodb://127.0.0.1:27017/blogDB', {
+mongoose.connect('mongodb+srv://admin-kaif:Kaifkaif1234@cluster0.k8uohd0.mongodb.net/blogDB', {
     useNewUrlParser: true,
 })
+// mongoose.connect('mongodb://127.0.0.1:27017/blogDB', {
+//     useNewUrlParser: true,
+// })
 
 
     .then(() => {
