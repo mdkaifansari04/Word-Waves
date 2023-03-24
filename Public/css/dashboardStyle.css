@@ -115,12 +115,17 @@ body{
             margin: 0rem 0px;
             width: 100vw;
             height: auto;
+            padding: 5rem 0rem 1.5rem;
         }
 
         .tab-content{
             margin:0rem;
             justify-content: center;
             padding: 0px !important;
+        }
+
+        .tab-pane{
+            padding-bottom: 15rem !important; 
         }
 
     }

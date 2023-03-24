@@ -13,7 +13,7 @@ const User = require('./Routes/user')
 const Post = require('./Routes/post')
 const PostData = require('./Models/postSchema')
 const UserData = require('./Models/userSchema')
-const Utils = require('./Models/utilitiesSchema')
+const Utils = require('./Models/utilitiesSchema') 
 const userSession = require('./Middlewares/userSession-middleware') // !user session middleware route
 const Admin = require('./Routes/admin')
 const PORT = 3000
@@ -40,12 +40,16 @@ app.use(fileupload({
 }))
 
 app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'))
 
 mongoose.set("strictQuery", false)
-mongoose.connect('mongodb+srv://admin-kaif:Kaifkaif1234@cluster0.k8uohd0.mongodb.net/blogDB', {
+// mongoose.connect('mongodb+srv://admin-kaif:Kaifkaif1234@cluster0.k8uohd0.mongodb.net/blogDB', {
+//     useNewUrlParser: true,
+// })
+mongoose.connect('mongodb://127.0.0.1:27017/blogDB', {
     useNewUrlParser: true,
 })
+
 
     .then(() => {
         console.log('Connected to blogDB');
@@ -189,6 +193,10 @@ app.get('/blogs', async(req, res) => {
 app.get("/contact", async(req,res) =>{
 
     const utilities = await Utils.findOne({})
+    const receivedMessage = req.flash("message")
+    const alertMessage = req.flash("alertMessage")
+
+    console.log(receivedMessage);
 
     if (req.session.email) {
         const loginProp = 'hidden';
@@ -197,11 +205,41 @@ app.get("/contact", async(req,res) =>{
             profileProp: '',
             userAvatar : req.session.email,
             utilities : utilities,
+            message : receivedMessage,
+            alertMessage : alertMessage
         })
     } else {
         let message = req.flash('alertMessage');
         const profileProp = 'hidden'
         res.render('contact', {
+            loginProp: '',
+            profileProp: profileProp,
+            userAvatar : req.session.email,
+            utilities : utilities,
+            message : receivedMessage,
+            alertMessage : alertMessage
+        })
+    }
+})
+
+
+app.get("/about", async(req,res) =>{
+
+    const utilities = await Utils.findOne({})
+
+
+    if (req.session.email) {
+        const loginProp = 'hidden';
+        res.render('about', {
+            loginProp: loginProp,
+            profileProp: '',
+            userAvatar : req.session.email,
+            utilities : utilities,
+        })
+    } else {
+        let message = req.flash('alertMessage');
+        const profileProp = 'hidden'
+        res.render('about', {
             loginProp: '',
             profileProp: profileProp,
             userAvatar : req.session.email,
@@ -215,6 +253,11 @@ app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/')
 })
+
+app.get('*', (req,res) =>{
+    res.render('error')
+})
+
 
 
 app.listen('3000', () => {

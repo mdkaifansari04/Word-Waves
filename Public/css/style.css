@@ -11,7 +11,7 @@
 
 /*? Default Component  */
 .index-main-container{
-    margin-top: 4.6rem !important;
+    margin-top: 5rem !important;
 }
 
 .alert {
@@ -25,21 +25,24 @@
     display: none;
 }
 
+hr{
+    background-color: #3c3e46c7 !important;
+}
+
 /*? NAVBAR STYLING  */
 
 .navbar{
-background: rgba(255, 255, 255, 0.2) !important;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3px);
--webkit-backdrop-filter: blur(5px); 
-font-family: 'Josefin Sans', sans-serif !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(5px); 
+    font-family: 'Josefin Sans', sans-serif !important;
+    height: 5rem;
 }
 
 .nav {
     padding: 10px 6%;
     color: #101b47 !important;
-    /* display: flex; */
-    /* justify-content: space-between; */
 }
 
 .navbar-nav {
@@ -53,7 +56,7 @@ font-family: 'Josefin Sans', sans-serif !important;
 .navbar-brand span {
     background-color: #7286D3;
     padding: 0.3rem 0.5rem;
-    color: #f6f6f6;
+    color: #ffff;
 }
 
 .navbar-toggler {
@@ -100,7 +103,6 @@ font-family: 'Josefin Sans', sans-serif !important;
 /* ?CROUSEL STYLING  */
 .carousel {
     height: 100vh;
-
 }
 
 .carousel {
@@ -144,7 +146,6 @@ font-family: 'Josefin Sans', sans-serif !important;
     color: aliceblue;
 
 }
-
 
 
 /* ?POST CARD DESING  */
@@ -363,7 +364,6 @@ font-family: 'Josefin Sans', sans-serif !important;
 }
 
 
-
 /*? BLOG STYLING  */
 
 .main-container {
@@ -558,6 +558,19 @@ a {
     border-radius: 100%;
 }
 
+/*? ABOUT PAGE STYLING  */
+
+.card-img-overlay{
+    background: url("https://images.unsplash.com/photo-1661956601031-4cf09efadfce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60");
+    background-repeat:no-repeat ;
+}
+
+.about-container{
+    margin-top: 7rem;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     .contact-page {
         padding: 5% 4%;
@@ -566,4 +579,33 @@ a {
         font-size: 240%;
         margin-bottom: 2rem;
     }
+}
+
+@media only screen and (max-width: 991px){
+    .navbar{
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .index-main-container{
+        margin-top: auto !important;
+    }
+
+    .carousel {
+        height: 100vh;
+    }
+
+    .carousel-item img {
+        height: 100vh;
+    }
+
+    .input-container {
+        padding: 2rem 0.5rem;
+    }
+
+    .create-post-title {
+        padding: 2rem 0.5rem;
+    }
+    
+    
 }

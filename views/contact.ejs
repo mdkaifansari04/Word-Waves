@@ -1,60 +1,124 @@
 <%- include('partials/header'); -%>
-
-<div class="contact-page">
-    
-<div class="row mb-n8">
-    <div class="col-12 col-lg-10 col-xl-8 show-on-scroll show-on-scroll-ready" data-show-distance="10" data-show-duration="600" style="transform: translateY(0px); transition-duration: 600ms; opacity: 1;">
-        <h1 class="h2 mt-15 pb-4 pb-sm-0 mb-130 ContactHeading">For any enquiries, or to say hello, get in touch 👋</h1>
-    </div>
-</div>
-
-<div class="row gh-1 gv-2 pb-10">
-    <div class="col-12 col-lg-4">
-        <div class="mb-5 show-on-scroll show-on-scroll-ready" data-show-delay="100" data-show-distance="20" data-show-duration="500" data-show-origin="left" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
-            <p class="lead mb-17 fw-medium">Contact info:</p>
-            <ul class="font-size-17">
-                <li class="list-group-item">Email: <a href="mailto:amdkaif843@gmail.com?subject=Test%20Address%20Email" class="text-decoration-none">amdkaif843@gmail.com</a></li>
-                <li class="list-group-item">Phone: <a href="callto:+91 7488848209" class="text-decoration-none">+91 748-884-8209</a></li>
-            </ul>
-        </div>
-        <div class="mb-5 mt-n15 show-on-scroll show-on-scroll-ready" data-show-delay="200" data-show-distance="20" data-show-duration="500" data-show-origin="left" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
-            <p class="lead mb-17 fw-medium">Address:</p>
-            <ul class="borderless font-size-17">
-                <li class="list-group-item">Chirkunda Dhanbad,</li>
-                <li class="list-group-item">Jharkhand, IN 828202</li>
-            </ul>
-        </div>
-        <div class="mb-5 show-on-scroll show-on-scroll-ready mb-3" data-show-delay="300" data-show-distance="20" data-show-duration="500" data-show-origin="left" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
-            <p class="lead mb-17 fw-medium"> Avaiblity Hours:</p>
-            <ul class="borderless font-size-17">
-                <li class="list-group-item">Monday - Friday</li>
-                <li class="list-group-item">10:00 am - 7:30 pm</li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-12 col-lg-8 mt-5 mt-lg-0">
-        <form action="#">
-            <div class="row gh-1 gv-2">
-                <div class="col-12 col-md-6 show-on-scroll show-on-scroll-ready" data-show-duration="400" data-show-distance="10" data-show-delay="100" style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
-                    <input type="name" class="form-control input-box" placeholder="Your Name *">
-                </div>
-                <div class="col-12 col-md-6 show-on-scroll show-on-scroll-ready" data-show-duration="400" data-show-distance="10" data-show-delay="150" style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
-                    <input type="email" class="form-control" placeholder="Your Email *">
-                </div>
-
-                <div class="col-12 show-on-scroll show-on-scroll-ready" data-show-duration="400" data-show-distance="10" data-show-delay="400" style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
-                    <input type="text" class="form-control input-box" placeholder="Title">
-                </div>
-                <div class="col-12 show-on-scroll show-on-scroll-ready" data-show-duration="400" data-show-distance="10" data-show-delay="450" style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
-                    <textarea class="form-control input-box" rows="5" placeholder="Message *"></textarea>
-                </div>
-                <div class="col-12 show-on-scroll show-on-scroll-ready" data-show-duration="400" data-show-distance="10" data-show-delay="470" style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
-                    <button class="btn btn-primary contact-submit-btn" type="button" name="button">submit<span class="btn-ball" style="transform: translateY(0px);"></span></button>
+        <!-- ?SUCCESS ALERT BOX  -->
+        <% if( message.length> 0) { %>
+            <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert" style="
+					height: 4rem;
+					margin-bottom: 0;
+                    margin-top: 5rem;
+					padding: 0 6%;">
+                <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:" style="width: 2rem;">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                <div>
+                    <strong>Sucessfully :</strong>
+                    <%= message %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
-        </form>
-    </div>
-</div>
-</div>
+            <% } %>
 
-<%- include('partials/footer'); -%>
+                <!-- ? Alert box message -->
+                <% if(alertMessage.length> 0) { %>
+
+                    <div class="alert alert-danger d-flex align-items-center" role="alert" style="
+                        height: 4rem;
+                        margin-bottom: 0;
+                        margin-top: 5rem;
+                        padding: 0 6%;">
+                        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 2rem;">
+                            <use xlink:href="#exclamation-triangle-fill" />
+                        </svg>
+                        <div>
+                            <strong> Error, </strong>
+                            <%= alertMessage %>
+                        </div>
+                    </div>
+
+                    <% } %>
+    <div class="contact-page">
+
+
+                        <div class="row mb-n8">
+                            <div class="col-12 col-lg-10 col-xl-8 show-on-scroll show-on-scroll-ready"
+                                data-show-distance="10" data-show-duration="600"
+                                style="transform: translateY(0px); transition-duration: 600ms; opacity: 1;">
+                                <h1 class="h2 mt-15 pb-4 pb-sm-0 mb-130 ContactHeading">For any enquiries, or to say
+                                    hello, get in touch 👋</h1>
+                            </div>
+                        </div>
+
+                        <div class="row gh-1 gv-2 pb-10">
+                            <div class="col-12 col-lg-4">
+                                <div class="mb-5 show-on-scroll show-on-scroll-ready" data-show-delay="100"
+                                    data-show-distance="20" data-show-duration="500" data-show-origin="left"
+                                    style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                    <p class="lead mb-17 fw-medium">Contact info:</p>
+                                    <ul class="font-size-17">
+                                        <li class="list-group-item">Email: <a
+                                                href="mailto:amdkaif843@gmail.com?subject=Test%20Address%20Email"
+                                                class="text-decoration-none">amdkaif843@gmail.com</a></li>
+                                        <li class="list-group-item">Phone: <a href="callto:+91 7488848209"
+                                                class="text-decoration-none">+91 748-884-8209</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mb-5 mt-n15 show-on-scroll show-on-scroll-ready" data-show-delay="200"
+                                    data-show-distance="20" data-show-duration="500" data-show-origin="left"
+                                    style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                    <p class="lead mb-17 fw-medium">Address:</p>
+                                    <ul class="borderless font-size-17">
+                                        <li class="list-group-item">Chirkunda Dhanbad,</li>
+                                        <li class="list-group-item">Jharkhand, IN 828202</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-5 show-on-scroll show-on-scroll-ready mb-3" data-show-delay="300"
+                                    data-show-distance="20" data-show-duration="500" data-show-origin="left"
+                                    style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                    <p class="lead mb-17 fw-medium"> Avaiblity Hours:</p>
+                                    <ul class="borderless font-size-17">
+                                        <li class="list-group-item">Monday - Friday</li>
+                                        <li class="list-group-item">10:00 am - 7:30 pm</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-8 mt-5 mt-lg-0">
+                                <form action="/user/contact" method="post">
+                                    <div class="row gh-1 gv-2">
+                                        <div class="col-12 col-md-6 show-on-scroll show-on-scroll-ready"
+                                            data-show-duration="400" data-show-distance="10" data-show-delay="100"
+                                            style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
+                                            <input name="name" type="name" class="form-control input-box"
+                                                placeholder="Your Name *">
+                                        </div>
+                                        <div class="col-12 col-md-6 show-on-scroll show-on-scroll-ready"
+                                            data-show-duration="400" data-show-distance="10" data-show-delay="150"
+                                            style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
+                                            <input name="email" type="email" class="form-control input-box"
+                                                placeholder="Your Email *" required>
+                                        </div>
+
+                                        <div class="col-12 show-on-scroll show-on-scroll-ready" data-show-duration="400"
+                                            data-show-distance="10" data-show-delay="400"
+                                            style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
+                                            <input name="subject" type="text" class="form-control input-box"
+                                                placeholder="Subject" required>
+                                        </div>
+                                        <div class="col-12 show-on-scroll show-on-scroll-ready" data-show-duration="400"
+                                            data-show-distance="10" data-show-delay="450"
+                                            style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
+                                            <textarea name="message" class="form-control input-box" rows="5"
+                                                placeholder="Message *" required></textarea>
+                                        </div>
+                                        <div class="col-12 show-on-scroll show-on-scroll-ready" data-show-duration="400"
+                                            data-show-distance="10" data-show-delay="470"
+                                            style="transform: translateY(0px); transition-duration: 400ms; opacity: 1;">
+                                            <button class="btn btn-primary contact-submit-btn" type="submit"
+                                                name="button">submit<span class="btn-ball"
+                                                    style="transform: translateY(0px);"></span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+    </div>
+
+    <%- include('partials/footer'); -%>
